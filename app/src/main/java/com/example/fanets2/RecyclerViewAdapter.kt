@@ -12,20 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
 
-    var articulos : MutableList<ArticuloModel> = ArrayList()
+    private var articulos : MutableList<ArticuloModel> = ArrayList()
     lateinit var context: Context
 
-    fun RecyclerViewAdapter(articulos:MutableList<ArticuloModel>,context:Context){
+
+    fun recyclerViewAdapter(articulos:MutableList<ArticuloModel>, context:Context){
         this.articulos = articulos
         this.context = context
     }
 
 val imagenes = intArrayOf(R.drawable.mochilaets2,
+    R.drawable.volvofh13,
     R.drawable.palancacambiosets2,
-    R.drawable.scaniaclasic,
     R.drawable.volante,
     R.drawable.volanteest2,
-    R.drawable.volvofh13)
+    R.drawable.volante)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,21 +38,22 @@ val imagenes = intArrayOf(R.drawable.mochilaets2,
         holder.imagen.setImageResource(imagenes[position])
         holder.nombre.text = articulos[position].nombre
         holder.descripcion.text = articulos[position].descripcion
+
+
     }
 
     override fun getItemCount() = articulos.size
 
     class ViewHolder (view: View): RecyclerView.ViewHolder(view) {
-        val imagen:ImageView
-        val nombre:TextView
-        val descripcion:TextView
+        val imagen:ImageView = view.findViewById(R.id.imgItem)
+        val nombre:TextView = view.findViewById(R.id.tvTitulo)
+        val descripcion:TextView = view.findViewById(R.id.tvDescripcion)
 
-        init {
-            imagen = view.findViewById(R.id.imgItem)
-            nombre = view.findViewById(R.id.tvTitulo)
-            descripcion = view.findViewById(R.id.tvDescripcion)
-        }
+
+
     }
+
+
 
 }
 

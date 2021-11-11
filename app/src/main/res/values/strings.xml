@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">FAN ETS2</string>
     <string name="hello_word">Hello Word!</string>
+    <string name="fan_ets_2" translatable="false">Fan ETS 2</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="a_ade_tu_email" translatable="false">Añade tu email</string>
+    <string name="a_ade_la_contrase_a" translatable="false">Añade la contraseña</string>
+    <string name="entrar">Entrar</string>
 </resources>
