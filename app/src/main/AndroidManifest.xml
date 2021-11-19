@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".SegundoActivity"/>
         <activity android:name=".DescripcionActivity"/>
+        <activity android:name=".CarritoActivity"/>
 
     </application>
 

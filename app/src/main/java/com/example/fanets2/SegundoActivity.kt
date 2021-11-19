@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fanets2.R.layout.activity_tienda
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class SegundoActivity: AppCompatActivity() {
@@ -19,17 +19,25 @@ class SegundoActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activity_tienda)
+        setContentView(R.layout.activity_tienda)
+
+        var b = findViewById<FloatingActionButton>(R.id.botonCarrito)
+        b.setOnClickListener {
+            var intent = Intent(this,CarritoActivity::class.java)
+            startActivity(intent)
+
+        }
 
 
 
         imagen = arrayOf(
-            R.drawable.volante,
+            R.drawable.volanteg29,
             R.drawable.palancacambiosets2,
             R.drawable.volvofh13,
-            R.drawable.volanteest2,
-            R.drawable.scaniaclasic,
-            R.drawable.mochilaets2
+            R.drawable.volanteets2,
+            R.drawable.trackir,
+            R.drawable.mochilaets2,
+            R.drawable.volvofh16
         )
 
         nombre = arrayOf(
@@ -38,7 +46,8 @@ class SegundoActivity: AppCompatActivity() {
             "Miniatura Volvo FH 13",
             "Volante Verdadero Scania",
             "Miniatura Scania Clasic ",
-            "Mochila Tirantes ETS 2"
+            "Mochila Tirantes ETS 2",
+            "Miniatura Volvo FH 16"
         )
 
         descripcion = arrayOf(
@@ -47,7 +56,8 @@ class SegundoActivity: AppCompatActivity() {
             "Miniatura escala  Volvo FH 13",
             "Volante Verdadero Scania",
             "Miniatura Scania Clasic",
-            "Mochila Tirantes ETS 2"
+            "Mochila Tirantes ETS 2",
+            "Miniatura escala  Volvo FH 16"
 
         )
 
