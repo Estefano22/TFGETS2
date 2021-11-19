@@ -1,60 +1,61 @@
 package com.example.fanets2
-
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
+class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : RecyclerView.Adapter<RecyclerViewAdapter.MyviewHolder>() {
 
-    private var articulos : MutableList<ArticuloModel> = ArrayList()
-    lateinit var context: Context
+    private lateinit var mListener : onItemClickListener
 
+    interface onItemClickListener{
 
-    fun recyclerViewAdapter(articulos:MutableList<ArticuloModel>, context:Context){
-        this.articulos = articulos
-        this.context = context
-    }
-
-val imagenes = intArrayOf(R.drawable.mochilaets2,
-    R.drawable.volvofh13,
-    R.drawable.palancacambiosets2,
-    R.drawable.volante,
-    R.drawable.volanteest2,
-    R.drawable.volante)
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_view,parent,false)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.imagen.setImageResource(imagenes[position])
-        holder.nombre.text = articulos[position].nombre
-        holder.descripcion.text = articulos[position].descripcion
-
+        fun onItemClick(position : Int)
 
     }
 
-    override fun getItemCount() = articulos.size
+    fun setOnItemClickListener(listener: onItemClickListener){
 
-    class ViewHolder (view: View): RecyclerView.ViewHolder(view) {
-        val imagen:ImageView = view.findViewById(R.id.imgItem)
-        val nombre:TextView = view.findViewById(R.id.tvTitulo)
-        val descripcion:TextView = view.findViewById(R.id.tvDescripcion)
-
-
+        mListener = listener
 
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyviewHolder {
+        val intemView = LayoutInflater.from(parent.context).inflate(R.layout.item_list_view,parent,false)
+        return MyviewHolder(intemView,mListener)
+    }
 
+    override fun onBindViewHolder(holder: MyviewHolder, position: Int) {
+
+        val currentItem = newList[position]
+        holder.imageView.setImageResource(currentItem.imageView)
+        holder.tvTitulo.text = currentItem.tvTitulo
+        holder.tvDescripcion.text = currentItem.tvDescripcion
+        holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position) }
+
+    }
+
+    override fun getItemCount(): Int {
+        return newList.size
+    }
+
+    class MyviewHolder(intemView : View, listener: onItemClickListener) : RecyclerView.ViewHolder(intemView){
+
+        val imageView : ImageView = itemView.findViewById(R.id.imageView)
+        val tvTitulo : TextView = intemView.findViewById(R.id.tvTitulo)
+        val tvDescripcion : TextView = intemView.findViewById(R.id.tvDescripcion)
+        val layaoutPrincipal : LinearLayout = intemView.findViewById(R.id.layout_principal)
+
+    }
 
 }
+
+
+
 
 
