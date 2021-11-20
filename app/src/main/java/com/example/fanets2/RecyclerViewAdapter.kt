@@ -2,9 +2,7 @@ package com.example.fanets2
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -52,6 +50,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         val layaoutPrincipal : LinearLayout = intemView.findViewById(R.id.layout_principal)
 
     }
+
 
 }
 

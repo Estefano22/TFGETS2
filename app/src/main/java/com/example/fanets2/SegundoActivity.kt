@@ -2,19 +2,26 @@ package com.example.fanets2
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.view.Menu
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class SegundoActivity: AppCompatActivity() {
+class SegundoActivity: AppCompatActivity(), OnQueryTextListener{
 
     private lateinit var newRecyclerview : RecyclerView
+    private lateinit var search: SearchView
+    private  var  tempArrayList : ArrayList<ArticuloModel> =arrayListOf()
     private  var newArrayList : ArrayList<ArticuloModel> =arrayListOf()
     lateinit var imagen : Array<Int>
     lateinit var nombre : Array<String>
     lateinit var descripcion : Array<String>
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +80,17 @@ class SegundoActivity: AppCompatActivity() {
 
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
+        menuInflater.inflate(R.menu.menu, menu)
+        search = menu.findItem(R.id.searchView).actionView as SearchView
+        search.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
+        search.setOnQueryTextListener(this)
+        return true
+
+    }
+
     private fun getArticulodata() {
 
         for (i in imagen.indices){
@@ -80,6 +98,8 @@ class SegundoActivity: AppCompatActivity() {
             val articulos = ArticuloModel(imagen[i], nombre[i], descripcion[i])
             newArrayList.add(articulos)
         }
+
+        tempArrayList.addAll(newArrayList)
 
         val adapter = RecyclerViewAdapter(newArrayList)
         newRecyclerview.adapter = adapter
@@ -100,7 +120,16 @@ class SegundoActivity: AppCompatActivity() {
 
     }
 
+    override fun onQueryTextSubmit(p0: String?): Boolean {
+        return false
+    }
 
+    override fun onQueryTextChange(p0: String?): Boolean {
+
+        return false
+
+
+    }
 
 
 }
