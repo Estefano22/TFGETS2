@@ -10,18 +10,19 @@ import androidx.appcompat.widget.SearchView.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class SegundoActivity: AppCompatActivity(), OnQueryTextListener{
+class SegundoActivity: AppCompatActivity() {
 
-    private lateinit var newRecyclerview : RecyclerView
+    private lateinit var newRecyclerview: RecyclerView
     private lateinit var search: SearchView
-    private  var  tempArrayList : ArrayList<ArticuloModel> =arrayListOf()
-    private  var newArrayList : ArrayList<ArticuloModel> =arrayListOf()
-    lateinit var imagen : Array<Int>
-    lateinit var nombre : Array<String>
-    lateinit var descripcion : Array<String>
-
+    private var tempArrayList: ArrayList<ArticuloModel> = arrayListOf()
+    private var newArrayList: ArrayList<ArticuloModel> = arrayListOf()
+    lateinit var imagen: Array<Int>
+    lateinit var nombre: Array<String>
+    lateinit var descripcion: Array<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class SegundoActivity: AppCompatActivity(), OnQueryTextListener{
 
         var b = findViewById<FloatingActionButton>(R.id.botonCarrito)
         b.setOnClickListener {
-            var intent = Intent(this,CarritoActivity::class.java)
+            var intent = Intent(this, CarritoActivity::class.java)
             startActivity(intent)
 
         }
@@ -78,22 +79,14 @@ class SegundoActivity: AppCompatActivity(), OnQueryTextListener{
 
         getArticulodata()
 
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-
-        menuInflater.inflate(R.menu.menu, menu)
-        search = menu.findItem(R.id.searchView).actionView as SearchView
-        search.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
-        search.setOnQueryTextListener(this)
-        return true
 
     }
+
+
 
     private fun getArticulodata() {
 
-        for (i in imagen.indices){
+        for (i in imagen.indices) {
 
             val articulos = ArticuloModel(imagen[i], nombre[i], descripcion[i])
             newArrayList.add(articulos)
@@ -103,14 +96,14 @@ class SegundoActivity: AppCompatActivity(), OnQueryTextListener{
 
         val adapter = RecyclerViewAdapter(newArrayList)
         newRecyclerview.adapter = adapter
-        adapter.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener{
+        adapter.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
 
                 newArrayList[position]
-                val intent = Intent(this@SegundoActivity,DescripcionActivity::class.java)
-                intent.putExtra("imagen",newArrayList[position].imageView)
-                intent.putExtra("nombre",newArrayList[position].tvTitulo)
-                intent.putExtra("descripcion",newArrayList[position].tvDescripcion)
+                val intent = Intent(this@SegundoActivity, DescripcionActivity::class.java)
+                intent.putExtra("imagen", newArrayList[position].imageView)
+                intent.putExtra("nombre", newArrayList[position].tvTitulo)
+                intent.putExtra("descripcion", newArrayList[position].tvDescripcion)
                 startActivity(intent)
 
             }
@@ -120,16 +113,10 @@ class SegundoActivity: AppCompatActivity(), OnQueryTextListener{
 
     }
 
-    override fun onQueryTextSubmit(p0: String?): Boolean {
-        return false
-    }
 
-    override fun onQueryTextChange(p0: String?): Boolean {
-
-        return false
-
-
-    }
 
 
 }
+
+
+
