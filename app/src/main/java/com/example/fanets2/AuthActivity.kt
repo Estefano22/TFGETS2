@@ -2,58 +2,92 @@ package com.example.fanets2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import androidx.core.widget.doAfterTextChanged
-import com.google.firebase.analytics.FirebaseAnalytics
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 
 class AuthActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth;
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
-        // Analytics Event
-        val analytics:FirebaseAnalytics = FirebaseAnalytics.getInstance(this)
-        val bundle = Bundle()
-        bundle.putString("message", "Integracion de Firebase completa")
-        analytics.logEvent("InitScreen",bundle)
-
-
+        auth = FirebaseAuth.getInstance();
 
         val entrar = findViewById<Button>(R.id.entrar)
+        val registrar = findViewById<Button>(R.id.registrarse)
+        val nombreUsuario = findViewById<EditText>(R.id.nombreUsuario)
+        val Contrasenia = findViewById<EditText>(R.id.Contrasenia)
 
         entrar.setOnClickListener {
-            val intent = Intent(this,SegundoActivity::class.java)
-            startActivity(intent)
+
+
+            if (nombreUsuario.text.trim().toString().isNotEmpty() || Contrasenia.text.trim().toString().isNotEmpty()){
+                loginUsuario(nombreUsuario.text.trim().toString(),Contrasenia.text.trim().toString());
+
+            }else{
+
+                Toast.makeText(this, "Inout requiered", Toast.LENGTH_LONG).show();
+
+            }
+
 
 
         }
 
-        val b = findViewById<Button>(R.id.registrarse)
-        b.setOnClickListener {
-            val intent = Intent(this, RegistrarActivity::class.java)
-            startActivity(intent)
+        registrar.setOnClickListener {
 
-        }
+            if (nombreUsuario.text.trim().toString().isNotEmpty() || Contrasenia.text.trim().toString().isNotEmpty()) {
+                crearUsuario(nombreUsuario.text.trim().toString(), Contrasenia.text.trim().toString())
 
-        var editText1 = findViewById<EditText>(R.id.nombreUsuario)
-        var editText2 = findViewById<EditText>(R.id.Contrasenia)
+                Toast.makeText(this, "Input provided", Toast.LENGTH_LONG).show()
 
-        editText1.doAfterTextChanged {
+            } else {
 
-            if (it.isNullOrBlank()){
-                editText1
+                Toast.makeText(this, "Input Required", Toast.LENGTH_LONG).show()
+
+
             }
         }
 
+
+
     }
 
+    private fun crearUsuario(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
 
+                if (task.isSuccessful) {
+                    Log.e("Task Message", "Successful");
 
+                } else {
 
+                    Log.e("Task Message", "Failed" + task.exception);
 
+                }
+            }
 
+    }
+
+    private fun loginUsuario(email: String, password: String){
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+
+                if (task.isSuccessful){
+                    val intent = Intent(this, SegundoActivity::class.java)
+                    startActivity(intent)
+
+                }else{
+                    Toast.makeText(this, "Error !!"+task.exception, Toast.LENGTH_LONG).show()
+
+                }
+            }
+
+    }
 }

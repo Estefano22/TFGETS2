@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "164853245529",
-    "project_id": "fan-ets-2",
-    "storage_bucket": "fan-ets-2.appspot.com"
+    "project_number": "498284112080",
+    "project_id": "fan-ets-2-75e47",
+    "storage_bucket": "fan-ets-2-75e47.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:164853245529:android:68e26b0f4972276267b348",
+        "mobilesdk_app_id": "1:498284112080:android:29fecd84341c05ce4b56d5",
         "android_client_info": {
           "package_name": "com.example.fanets2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "164853245529-f05obk7rrqpifhi24moo1kl5srvlpolm.apps.googleusercontent.com",
+          "client_id": "498284112080-6i2jnrejl1d46hl6jg133dopkpir6m8m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC47dEOueDHmlnUhLI83MQEsSRopw0ezwY"
+          "current_key": "AIzaSyB7LTOlxQp0KFRyDbGMrZ8KbBloHoGVr-4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "164853245529-f05obk7rrqpifhi24moo1kl5srvlpolm.apps.googleusercontent.com",
+              "client_id": "498284112080-6i2jnrejl1d46hl6jg133dopkpir6m8m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
