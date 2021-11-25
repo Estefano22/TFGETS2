@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AuthActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background_v2">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/botonCarrito"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="TODO"
         android:src="@drawable/ic_baseline_shopping_cart_24"
-        app:backgroundTint="#03A9F4"
+        app:backgroundTint="#9C9C9C"
         app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
