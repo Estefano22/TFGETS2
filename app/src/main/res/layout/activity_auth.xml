@@ -11,15 +11,15 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="235dp"
-        android:layout_height="142dp"
+        android:layout_width="258dp"
+        android:layout_height="176dp"
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.10"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@mipmap/logo_largo" />
 
     <EditText
         android:id="@+id/nombreUsuario"
