@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_v2"
+    android:orientation="horizontal"
     tools:context=".AuthActivity">
 
 
@@ -55,14 +55,12 @@
 
     <Button
         android:id="@+id/entrar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#0095D8"
         android:text="Acceder"
         android:textColor="#FFFFFF"
-        android:background="@drawable/btn_round_primary_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,14 +69,11 @@
 
     <Button
         android:id="@+id/registrarse"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/btn_round_primary_bg"
-        android:backgroundTint="#0095D8"
         android:text="Registrar"
-        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -13,6 +13,8 @@ class AuthActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth;
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(2000)
+        setTheme(R.style.Theme_FANETS2)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
@@ -31,7 +33,7 @@ class AuthActivity : AppCompatActivity() {
 
             }else{
 
-                Toast.makeText(this, "Inout requiered", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Complete los Campos", Toast.LENGTH_LONG).show();
 
             }
 
@@ -44,11 +46,11 @@ class AuthActivity : AppCompatActivity() {
             if (nombreUsuario.text.trim().toString().isNotEmpty() || Contrasenia.text.trim().toString().isNotEmpty()) {
                 crearUsuario(nombreUsuario.text.trim().toString(), Contrasenia.text.trim().toString())
 
-                Toast.makeText(this, "Input provided", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Registrado con Excito", Toast.LENGTH_LONG).show()
 
             } else {
 
-                Toast.makeText(this, "Input Required", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Complete los Campos", Toast.LENGTH_LONG).show()
 
 
             }
