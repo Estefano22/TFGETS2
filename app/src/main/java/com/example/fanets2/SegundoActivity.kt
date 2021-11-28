@@ -2,7 +2,6 @@ package com.example.fanets2
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
@@ -75,11 +74,61 @@ class SegundoActivity: AppCompatActivity() {
         newRecyclerview = findViewById(R.id.recyclerView)
         newRecyclerview.layoutManager = LinearLayoutManager(this)
         newRecyclerview.setHasFixedSize(true)
-
+        tempArrayList = arrayListOf<ArticuloModel>()
 
         getArticulodata()
 
 
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.menu,menu)
+        val item = menu?.findItem(R.id.search_action)
+        val searchView = item?.actionView as  SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                tempArrayList.clear()
+                val searchText = newText!!.toLowerCase(Locale.getDefault())
+
+                if (searchText.isNotEmpty()){
+
+                    newArrayList.forEach {
+
+                        if (it.tvTitulo.toLowerCase(Locale.getDefault()).contains(searchText)){
+
+                            tempArrayList.add(it)
+
+                        }
+
+                    }
+
+                    newRecyclerview.adapter!!.notifyDataSetChanged()
+
+                }else{
+
+                    tempArrayList.clear()
+                    tempArrayList.addAll(newArrayList)
+                    newRecyclerview.adapter!!.notifyDataSetChanged()
+
+
+                }
+
+
+                return false
+
+            }
+
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
     }
 
 
@@ -94,7 +143,8 @@ class SegundoActivity: AppCompatActivity() {
 
         tempArrayList.addAll(newArrayList)
 
-        val adapter = RecyclerViewAdapter(newArrayList)
+
+        val adapter = RecyclerViewAdapter(tempArrayList)
         newRecyclerview.adapter = adapter
         adapter.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {

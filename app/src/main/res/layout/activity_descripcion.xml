@@ -49,4 +49,15 @@
         android:gravity="center"
         app:layout_constraintVertical_bias="0.123" />
 
+    <Button
+        android:id="@+id/Añadir_Carrito"
+        android:layout_width="275dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="72dp"
+        android:text="Añadir al carrito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DSDescripcion"
+        app:layout_constraintVertical_bias="0.087" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

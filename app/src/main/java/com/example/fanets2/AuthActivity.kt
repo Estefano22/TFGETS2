@@ -25,6 +25,8 @@ class AuthActivity : AppCompatActivity() {
         val nombreUsuario = findViewById<EditText>(R.id.nombreUsuario)
         val Contrasenia = findViewById<EditText>(R.id.Contrasenia)
 
+
+
         entrar.setOnClickListener {
 
 
