@@ -2,9 +2,12 @@ package com.example.fanets2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
@@ -26,6 +29,26 @@ class AuthActivity : AppCompatActivity() {
         val Contrasenia = findViewById<EditText>(R.id.Contrasenia)
 
 
+
+
+        nombreUsuario.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                entrar.isEnabled=true
+                registrar.isEnabled=true
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+
+
+            }
+
+
+        })
 
         entrar.setOnClickListener {
 
@@ -67,11 +90,11 @@ class AuthActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
 
                 if (task.isSuccessful) {
-                    Log.e("Task Message", "Successful");
+                    Log.e("Task Message", "Registrado con Excito");
 
                 } else {
 
-                    Log.e("Task Message", "Failed" + task.exception);
+                    Log.e("Task Message", "Complete los Campos" + task.exception);
 
                 }
             }

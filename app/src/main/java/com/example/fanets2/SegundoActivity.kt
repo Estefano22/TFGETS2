@@ -16,12 +16,12 @@ import kotlin.collections.ArrayList
 class SegundoActivity: AppCompatActivity() {
 
     private lateinit var newRecyclerview: RecyclerView
-    private lateinit var search: SearchView
     private var tempArrayList: ArrayList<ArticuloModel> = arrayListOf()
     private var newArrayList: ArrayList<ArticuloModel> = arrayListOf()
     lateinit var imagen: Array<Int>
     lateinit var nombre: Array<String>
     lateinit var descripcion: Array<String>
+    lateinit var precio: Array<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,30 +44,47 @@ class SegundoActivity: AppCompatActivity() {
             R.drawable.volanteets2,
             R.drawable.trackir,
             R.drawable.mochilaets2,
-            R.drawable.volvofh16
+            R.drawable.volvofh16,
+            R.drawable.camisetauno,
+            R.drawable.camisetados
         )
 
         nombre = arrayOf(
-            "Volante",
+            "Volante G29",
             "Palanca ETS 2",
             "Miniatura Volvo FH 13",
             "Volante Verdadero Scania",
-            "Miniatura Scania Clasic ",
+            "Trackir Pro 5 ",
             "Mochila Tirantes ETS 2",
-            "Miniatura Volvo FH 16"
+            "Miniatura Volvo FH 16",
+            "Camiseta Logo ETS 2 Grande",
+            "Camiseta Logo ETS 2 Pequeño"
         )
 
         descripcion = arrayOf(
             "Volante G29 con pedales y palanca de cambios.",
             "Pomo palanca de cambios de camion para simular ETS 2.",
-            "Miniatura escala  Volvo FH 13",
-            "Volante Verdadero Scania",
-            "Miniatura Scania Clasic",
-            "Mochila Tirantes ETS 2",
-            "Miniatura escala  Volvo FH 16"
+            "Miniatura escala 1:43 Volvo FH 13 con pintura personalizada.",
+            "Volante Verdadero Scania.",
+            "Periférico para simulación virtual de videojuegos (para la cabeza).",
+            "Mochila Saco Tirantes con el logo de  ETS 2.",
+            "Miniatura escala 1:43 Volvo FH 16 con pintura personalizada.",
+            "Camiseta Personalizada con el Logo grande de Euro Truck Simulator 2.",
+            "Camiseta Personalizada con el Logo pequeño de Euro Truck Simulator 2."
 
         )
 
+        precio = arrayOf(
+            "299€",
+            "80€",
+            "45€",
+            "150€",
+            "48,80€",
+            "25€",
+            "55€",
+            "20€",
+            "15€"
+        )
 
 
 
@@ -87,7 +104,7 @@ class SegundoActivity: AppCompatActivity() {
         menuInflater.inflate(R.menu.menu,menu)
         val item = menu?.findItem(R.id.search_action)
         val searchView = item?.actionView as  SearchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 TODO("Not yet implemented")
             }
@@ -95,13 +112,14 @@ class SegundoActivity: AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
 
                 tempArrayList.clear()
-                val searchText = newText!!.toLowerCase(Locale.getDefault())
+                val searchText = newText!!.lowercase(Locale.getDefault())
 
-                if (searchText.isNotEmpty()){
+                if (searchText.isNotEmpty()) {
+
 
                     newArrayList.forEach {
 
-                        if (it.tvTitulo.toLowerCase(Locale.getDefault()).contains(searchText)){
+                        if (it.tvTitulo.lowercase(Locale.getDefault()).contains(searchText)) {
 
                             tempArrayList.add(it)
 
@@ -111,7 +129,7 @@ class SegundoActivity: AppCompatActivity() {
 
                     newRecyclerview.adapter!!.notifyDataSetChanged()
 
-                }else{
+                } else {
 
                     tempArrayList.clear()
                     tempArrayList.addAll(newArrayList)
@@ -137,7 +155,7 @@ class SegundoActivity: AppCompatActivity() {
 
         for (i in imagen.indices) {
 
-            val articulos = ArticuloModel(imagen[i], nombre[i], descripcion[i])
+            val articulos = ArticuloModel(imagen[i], nombre[i], descripcion[i], precio[i])
             newArrayList.add(articulos)
         }
 
@@ -146,6 +164,7 @@ class SegundoActivity: AppCompatActivity() {
 
         val adapter = RecyclerViewAdapter(tempArrayList)
         newRecyclerview.adapter = adapter
+
         adapter.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
 
@@ -154,6 +173,7 @@ class SegundoActivity: AppCompatActivity() {
                 intent.putExtra("imagen", newArrayList[position].imageView)
                 intent.putExtra("nombre", newArrayList[position].tvTitulo)
                 intent.putExtra("descripcion", newArrayList[position].tvDescripcion)
+                intent.putExtra("precio", newArrayList[position].TVPrecio)
                 startActivity(intent)
 
             }

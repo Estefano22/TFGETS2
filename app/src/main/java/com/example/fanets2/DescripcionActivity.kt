@@ -1,6 +1,7 @@
 package com.example.fanets2
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -14,9 +15,18 @@ class DescripcionActivity: AppCompatActivity() {
         val  imagenDescripcion : ImageView = findViewById(R.id.imgItem)
         val  nombreDescripcion : TextView = findViewById(R.id.DSTitulo)
         val  descripcionDescripcion : TextView = findViewById(R.id.DSDescripcion)
+        val  botonAñadirCarrito : Button = findViewById(R.id.Añadir_Carrito)
 
 
 
+        botonAñadirCarrito.setOnClickListener {
+
+
+
+
+
+
+        }
 
         val bundle = intent.extras
         bundle?.let {

@@ -34,6 +34,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         holder.imageView.setImageResource(currentItem.imageView)
         holder.tvTitulo.text = currentItem.tvTitulo
         holder.tvDescripcion.text = currentItem.tvDescripcion
+        holder.TVPrecio.text = currentItem.TVPrecio
         holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position) }
 
     }
@@ -47,6 +48,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         val imageView : ImageView = itemView.findViewById(R.id.imageView)
         val tvTitulo : TextView = intemView.findViewById(R.id.tvTitulo)
         val tvDescripcion : TextView = intemView.findViewById(R.id.tvDescripcion)
+        val TVPrecio : TextView = intemView.findViewById(R.id.TVPrecio)
         val layaoutPrincipal : LinearLayout = intemView.findViewById(R.id.layout_principal)
 
     }

@@ -20,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SegundoActivity"/>
+        <activity android:name=".SegundoActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            />
         <activity android:name=".DescripcionActivity"/>
         <activity android:name=".CarritoActivity"/>
 
