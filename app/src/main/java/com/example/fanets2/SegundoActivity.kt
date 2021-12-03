@@ -21,7 +21,7 @@ class SegundoActivity: AppCompatActivity() {
     lateinit var imagen: Array<Int>
     lateinit var nombre: Array<String>
     lateinit var descripcion: Array<String>
-    lateinit var precio: Array<String>
+    lateinit var precio: Array<Int>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,15 +75,15 @@ class SegundoActivity: AppCompatActivity() {
         )
 
         precio = arrayOf(
-            "299€",
-            "80€",
-            "45€",
-            "150€",
-            "48,80€",
-            "25€",
-            "55€",
-            "20€",
-            "15€"
+            299,
+            80,
+            45,
+            150,
+            48,80,
+            25,
+            55,
+            20,
+            15
         )
 
 
@@ -127,13 +127,13 @@ class SegundoActivity: AppCompatActivity() {
 
                     }
 
-                    newRecyclerview.adapter!!.notifyDataSetChanged()
+                    newRecyclerview.adapter?.notifyDataSetChanged()
 
                 } else {
 
                     tempArrayList.clear()
                     tempArrayList.addAll(newArrayList)
-                    newRecyclerview.adapter!!.notifyDataSetChanged()
+                    newRecyclerview.adapter?.notifyDataSetChanged()
 
 
                 }
@@ -168,12 +168,12 @@ class SegundoActivity: AppCompatActivity() {
         adapter.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
 
-                newArrayList[position]
+                val item = tempArrayList[position]
                 val intent = Intent(this@SegundoActivity, DescripcionActivity::class.java)
-                intent.putExtra("imagen", newArrayList[position].imageView)
-                intent.putExtra("nombre", newArrayList[position].tvTitulo)
-                intent.putExtra("descripcion", newArrayList[position].tvDescripcion)
-                intent.putExtra("precio", newArrayList[position].TVPrecio)
+                intent.putExtra("imagen", item.imageView)
+                intent.putExtra("nombre", item.tvTitulo)
+                intent.putExtra("descripcion", item.tvDescripcion)
+                intent.putExtra("precio", item.TVPrecio)
                 startActivity(intent)
 
             }

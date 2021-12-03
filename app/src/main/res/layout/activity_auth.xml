@@ -30,16 +30,18 @@
 
         <EditText
             android:id="@+id/nombreUsuario"
-            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="16sp"
-            android:hint="@string/a_ade_tu_email"
             android:background="@android:color/transparent"
-            android:minHeight="48dp"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:drawablePadding="12dp"
+            android:hint="@string/a_ade_tu_email"
+            android:minHeight="48dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo" />

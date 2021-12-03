@@ -34,7 +34,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         holder.imageView.setImageResource(currentItem.imageView)
         holder.tvTitulo.text = currentItem.tvTitulo
         holder.tvDescripcion.text = currentItem.tvDescripcion
-        holder.TVPrecio.text = currentItem.TVPrecio
+        holder.TVPrecio.text = currentItem.TVPrecio.toString()
         holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position) }
 
     }
