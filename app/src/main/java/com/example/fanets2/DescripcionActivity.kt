@@ -1,6 +1,8 @@
 package com.example.fanets2
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,14 +22,11 @@ class DescripcionActivity: AppCompatActivity() {
 
 
 
-        botonAñadirCarrito.setOnClickListener {
+    botonAñadirCarrito.setOnClickListener {
 
 
 
-
-
-
-        }
+}
 
         val bundle = intent.extras
         bundle?.let {
@@ -46,6 +45,10 @@ class DescripcionActivity: AppCompatActivity() {
         }
 
 
+
+
+
     }
+
 
 }

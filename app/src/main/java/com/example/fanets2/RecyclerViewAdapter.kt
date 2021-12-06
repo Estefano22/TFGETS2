@@ -11,11 +11,16 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
 
     private lateinit var mListener : onItemClickListener
 
+
+
+
     interface onItemClickListener{
 
         fun onItemClick(position : Int)
 
     }
+
+
 
     fun setOnItemClickListener(listener: onItemClickListener){
 
@@ -26,6 +31,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyviewHolder {
         val intemView = LayoutInflater.from(parent.context).inflate(R.layout.item_list_view,parent,false)
         return MyviewHolder(intemView,mListener)
+
     }
 
     override fun onBindViewHolder(holder: MyviewHolder, position: Int) {
@@ -35,7 +41,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         holder.tvTitulo.text = currentItem.tvTitulo
         holder.tvDescripcion.text = currentItem.tvDescripcion
         holder.TVPrecio.text = currentItem.TVPrecio.toString()
-        holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position) }
+        holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position)}
 
     }
 
@@ -43,7 +49,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         return newList.size
     }
 
-    class MyviewHolder(intemView : View, listener: onItemClickListener) : RecyclerView.ViewHolder(intemView){
+    class MyviewHolder(intemView : View,listener: onItemClickListener ) : RecyclerView.ViewHolder(intemView){
 
         val imageView : ImageView = itemView.findViewById(R.id.imageView)
         val tvTitulo : TextView = intemView.findViewById(R.id.tvTitulo)
@@ -51,10 +57,14 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         val TVPrecio : TextView = intemView.findViewById(R.id.TVPrecio)
         val layaoutPrincipal : LinearLayout = intemView.findViewById(R.id.layout_principal)
 
+
     }
 
 
+
 }
+
+
 
 
 

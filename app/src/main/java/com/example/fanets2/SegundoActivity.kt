@@ -176,6 +176,7 @@ class SegundoActivity: AppCompatActivity() {
                 intent.putExtra("precio", item.TVPrecio)
                 startActivity(intent)
 
+
             }
 
         })
