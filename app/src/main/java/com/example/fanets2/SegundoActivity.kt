@@ -35,8 +35,6 @@ class SegundoActivity: AppCompatActivity() {
 
         }
 
-
-
         imagen = arrayOf(
             R.drawable.volanteg29,
             R.drawable.palancacambiosets2,
@@ -79,7 +77,8 @@ class SegundoActivity: AppCompatActivity() {
             80,
             45,
             150,
-            48,80,
+            48,
+            80,
             25,
             55,
             20,
@@ -95,9 +94,7 @@ class SegundoActivity: AppCompatActivity() {
 
         getArticulodata()
 
-
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -134,7 +131,6 @@ class SegundoActivity: AppCompatActivity() {
                     tempArrayList.clear()
                     tempArrayList.addAll(newArrayList)
                     newRecyclerview.adapter?.notifyDataSetChanged()
-
 
                 }
 

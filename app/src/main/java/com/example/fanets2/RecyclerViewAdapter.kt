@@ -7,31 +7,24 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 
-class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : RecyclerView.Adapter<RecyclerViewAdapter.MyviewHolder>() {
+class RecyclerViewAdapter(private val  newList : List<ArticuloModel>) : RecyclerView.Adapter<RecyclerViewAdapter.MyviewHolder>() {
 
     private lateinit var mListener : onItemClickListener
-
-
-
 
     interface onItemClickListener{
 
         fun onItemClick(position : Int)
-
     }
-
 
 
     fun setOnItemClickListener(listener: onItemClickListener){
-
         mListener = listener
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyviewHolder {
-        val intemView = LayoutInflater.from(parent.context).inflate(R.layout.item_list_view,parent,false)
-        return MyviewHolder(intemView,mListener)
+        val intemView = LayoutInflater.from(parent.context).inflate(R.layout.item_list_view, parent,false)
 
+        return MyviewHolder(intemView,mListener)
     }
 
     override fun onBindViewHolder(holder: MyviewHolder, position: Int) {
@@ -42,7 +35,7 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         holder.tvDescripcion.text = currentItem.tvDescripcion
         holder.TVPrecio.text = currentItem.TVPrecio.toString()
         holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position)}
-
+        //holder.layout_carrito.setOnClickListener { mListener.onItemClick(position) }
     }
 
     override fun getItemCount(): Int {
@@ -56,12 +49,8 @@ class RecyclerViewAdapter(private val  newList : ArrayList<ArticuloModel>) : Rec
         val tvDescripcion : TextView = intemView.findViewById(R.id.tvDescripcion)
         val TVPrecio : TextView = intemView.findViewById(R.id.TVPrecio)
         val layaoutPrincipal : LinearLayout = intemView.findViewById(R.id.layout_principal)
-
-
+        //val layout_carrito : LinearLayout = itemView.findViewById(R.id.layout_carrito)
     }
-
-
-
 }
 
 

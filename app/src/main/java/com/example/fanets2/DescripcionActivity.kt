@@ -2,41 +2,44 @@ package com.example.fanets2
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 
 class DescripcionActivity: AppCompatActivity() {
+
+    var imagen : Int? = null
+    var nombre : String? = null
+    var descripcion : String? = null
+    var precio : Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_descripcion)
 
-        val  imagenDescripcion : ImageView = findViewById(R.id.imgItem)
-        val  nombreDescripcion : TextView = findViewById(R.id.DSTitulo)
-        val  descripcionDescripcion : TextView = findViewById(R.id.DSDescripcion)
-        val  precioDescripcion : TextView = findViewById(R.id.TVPrecio)
-        val  botonAñadirCarrito : Button = findViewById(R.id.Añadir_Carrito)
+        val imagenDescripcion: ImageView = findViewById(R.id.imgItem)
+        val nombreDescripcion: TextView = findViewById(R.id.DSTitulo)
+        val descripcionDescripcion: TextView = findViewById(R.id.DSDescripcion)
+        val precioDescripcion: TextView = findViewById(R.id.TVPrecio)
+        val botonAniadirCarrito: Button = findViewById(R.id.Añadir_Carrito)
+        var newArrayList: ArrayList<ArticuloModel> = arrayListOf()
 
 
-
-    botonAñadirCarrito.setOnClickListener {
-
-
-
-}
 
         val bundle = intent.extras
         bundle?.let {
-            val imagen = bundle.getInt("imagen")
-            val nombre = bundle.getString("nombre")
-            val descripcion = bundle.getString("descripcion")
-            val precio = bundle.getInt("precio")
+            imagen = bundle.getInt("imagen")
+            nombre = bundle.getString("nombre")
+            descripcion = bundle.getString("descripcion")
+            precio = bundle.getInt("precio")
 
 
-            imagenDescripcion.setImageResource(imagen)
+            imagen?.let {
+                imagenDescripcion.setImageResource(it)
+            }
             nombreDescripcion.text = nombre
             descripcionDescripcion.text = descripcion
             precioDescripcion.text = precio.toString()
@@ -45,10 +48,19 @@ class DescripcionActivity: AppCompatActivity() {
         }
 
 
+        botonAniadirCarrito.setOnClickListener {
+            val intent = Intent(this@DescripcionActivity, CarritoActivity::class.java)
+            intent.putExtra("imagen", imagen)
+            intent.putExtra("nombre", nombre)
+            intent.putExtra("descripcion", descripcion)
+            intent.putExtra("precio", precio)
+            startActivity(intent)
 
+
+
+
+        }
 
 
     }
-
-
 }

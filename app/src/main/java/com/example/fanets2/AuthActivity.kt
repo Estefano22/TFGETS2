@@ -43,10 +43,7 @@ class AuthActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
 
-
-
             }
-
 
         })
 
@@ -61,8 +58,6 @@ class AuthActivity : AppCompatActivity() {
                 Toast.makeText(this, "Complete los Campos", Toast.LENGTH_LONG).show();
 
             }
-
-
 
         }
 
@@ -80,8 +75,6 @@ class AuthActivity : AppCompatActivity() {
 
             }
         }
-
-
 
     }
 
