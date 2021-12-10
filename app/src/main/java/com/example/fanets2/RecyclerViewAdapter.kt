@@ -33,9 +33,8 @@ class RecyclerViewAdapter(private val  newList : List<ArticuloModel>) : Recycler
         holder.imageView.setImageResource(currentItem.imageView)
         holder.tvTitulo.text = currentItem.tvTitulo
         holder.tvDescripcion.text = currentItem.tvDescripcion
-        holder.TVPrecio.text = currentItem.TVPrecio.toString()
+        holder.TVPrecio.text = currentItem.TVPrecio
         holder.layaoutPrincipal.setOnClickListener { mListener.onItemClick(position)}
-        //holder.layout_carrito.setOnClickListener { mListener.onItemClick(position) }
     }
 
     override fun getItemCount(): Int {
@@ -49,7 +48,6 @@ class RecyclerViewAdapter(private val  newList : List<ArticuloModel>) : Recycler
         val tvDescripcion : TextView = intemView.findViewById(R.id.tvDescripcion)
         val TVPrecio : TextView = intemView.findViewById(R.id.TVPrecio)
         val layaoutPrincipal : LinearLayout = intemView.findViewById(R.id.layout_principal)
-        //val layout_carrito : LinearLayout = itemView.findViewById(R.id.layout_carrito)
     }
 }
 

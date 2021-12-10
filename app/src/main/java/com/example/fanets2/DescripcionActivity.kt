@@ -5,16 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 
 class DescripcionActivity: AppCompatActivity() {
 
     var imagen : Int? = null
     var nombre : String? = null
     var descripcion : String? = null
-    var precio : Int? = null
+    var precio : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +23,7 @@ class DescripcionActivity: AppCompatActivity() {
         val descripcionDescripcion: TextView = findViewById(R.id.DSDescripcion)
         val precioDescripcion: TextView = findViewById(R.id.TVPrecio)
         val botonAniadirCarrito: Button = findViewById(R.id.Añadir_Carrito)
-        var newArrayList: ArrayList<ArticuloModel> = arrayListOf()
+        //var newArrayList: ArrayList<ArticuloModel> = arrayListOf()
 
 
 
@@ -34,7 +32,7 @@ class DescripcionActivity: AppCompatActivity() {
             imagen = bundle.getInt("imagen")
             nombre = bundle.getString("nombre")
             descripcion = bundle.getString("descripcion")
-            precio = bundle.getInt("precio")
+            precio = bundle.getString("precio")
 
 
             imagen?.let {
@@ -42,11 +40,9 @@ class DescripcionActivity: AppCompatActivity() {
             }
             nombreDescripcion.text = nombre
             descripcionDescripcion.text = descripcion
-            precioDescripcion.text = precio.toString()
-
+            precioDescripcion.text = precio
 
         }
-
 
         botonAniadirCarrito.setOnClickListener {
             val intent = Intent(this@DescripcionActivity, CarritoActivity::class.java)
@@ -55,9 +51,6 @@ class DescripcionActivity: AppCompatActivity() {
             intent.putExtra("descripcion", descripcion)
             intent.putExtra("precio", precio)
             startActivity(intent)
-
-
-
 
         }
 

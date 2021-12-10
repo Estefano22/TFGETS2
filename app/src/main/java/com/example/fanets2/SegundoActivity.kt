@@ -21,7 +21,7 @@ class SegundoActivity: AppCompatActivity() {
     lateinit var imagen: Array<Int>
     lateinit var nombre: Array<String>
     lateinit var descripcion: Array<String>
-    lateinit var precio: Array<Int>
+    lateinit var precio: Array<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,16 +73,16 @@ class SegundoActivity: AppCompatActivity() {
         )
 
         precio = arrayOf(
-            299,
-            80,
-            45,
-            150,
-            48,
-            80,
-            25,
-            55,
-            20,
-            15
+            "299€",
+            "80€",
+            "45€",
+            "150€",
+            "48€",
+            "80€",
+            "25€",
+            "55€",
+            "20€",
+            "15€"
         )
 
 
@@ -172,17 +172,11 @@ class SegundoActivity: AppCompatActivity() {
                 intent.putExtra("precio", item.TVPrecio)
                 startActivity(intent)
 
-
             }
 
         })
 
-
     }
-
-
-
-
 }
 
 
