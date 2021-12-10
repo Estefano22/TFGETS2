@@ -23,9 +23,6 @@ class DescripcionActivity: AppCompatActivity() {
         val descripcionDescripcion: TextView = findViewById(R.id.DSDescripcion)
         val precioDescripcion: TextView = findViewById(R.id.TVPrecio)
         val botonAniadirCarrito: Button = findViewById(R.id.Añadir_Carrito)
-        //var newArrayList: ArrayList<ArticuloModel> = arrayListOf()
-
-
 
         val bundle = intent.extras
         bundle?.let {

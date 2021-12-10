@@ -84,8 +84,8 @@ class CarritoActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("Prefs", Context.MODE_PRIVATE)
         val text = sharedPreferences.getString("TAG", "")
         val gson = Gson()
-        var aaa = gson.fromJson(text, MutableList::class.java)
-        aaa?.forEach {
+        var listagson = gson.fromJson(text, MutableList::class.java)
+        listagson?.forEach {
             lista.add(ArticuloModel.fromJson(it.toString()))
         }
 

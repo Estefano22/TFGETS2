@@ -86,7 +86,6 @@ class SegundoActivity: AppCompatActivity() {
         )
 
 
-
         newRecyclerview = findViewById(R.id.recyclerView)
         newRecyclerview.layoutManager = LinearLayoutManager(this)
         newRecyclerview.setHasFixedSize(true)
