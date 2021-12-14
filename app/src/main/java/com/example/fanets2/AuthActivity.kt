@@ -66,7 +66,7 @@ class AuthActivity : AppCompatActivity() {
             if (nombreUsuario.text.trim().toString().isNotEmpty() || Contrasenia.text.trim().toString().isNotEmpty()) {
                 crearUsuario(nombreUsuario.text.trim().toString(), Contrasenia.text.trim().toString())
 
-                Toast.makeText(this, "Registrado con Excito", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Registrado con Exito", Toast.LENGTH_LONG).show()
 
             } else {
 

@@ -78,9 +78,8 @@ class SegundoActivity: AppCompatActivity() {
             "45€",
             "150€",
             "48€",
-            "80€",
+            "10€",
             "25€",
-            "55€",
             "20€",
             "15€"
         )
