@@ -66,7 +66,7 @@ class AuthActivity : AppCompatActivity() {
             if (nombreUsuario.text.trim().toString().isNotEmpty() || Contrasenia.text.trim().toString().isNotEmpty()) {
                 crearUsuario(nombreUsuario.text.trim().toString(), Contrasenia.text.trim().toString())
 
-                Toast.makeText(this, "Registrado con Exito", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Registrado con Éxito", Toast.LENGTH_LONG).show()
 
             } else {
 
@@ -83,7 +83,7 @@ class AuthActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
 
                 if (task.isSuccessful) {
-                    Log.e("Task Message", "Registrado con Excito");
+                    Log.e("Task Message", "Registrado con Éxito");
 
                 } else {
 
